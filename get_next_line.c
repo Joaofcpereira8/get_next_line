@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:46:49 by jofilipe          #+#    #+#             */
-/*   Updated: 2023/02/10 13:45:41 by jofilipe         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:52:01 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*ft_read_next_line(char *str, int fd)
 static char	*ft_clear_next_line(char *str)
 {
 	int		i;
-	char	*linha;;
+	char	*linha;
 
 	i = 0;
 	if (!str[i])
@@ -61,7 +61,6 @@ static char	*ft_clear_next_line(char *str)
 	linha[i] = str[i];
 	i++;
 	linha[i] = '\0';
-	/* free (str); */
 	return (linha);
 }
 

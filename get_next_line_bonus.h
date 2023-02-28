@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:47:21 by jofilipe          #+#    #+#             */
-/*   Updated: 2023/02/10 13:44:37 by jofilipe         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:39:42 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
+# endif
+
+# ifndef MAX_FILES
+#  define MAX_FILES 500
 # endif
 
 char	*ft_strjoin(char const *str1, char const *str2);

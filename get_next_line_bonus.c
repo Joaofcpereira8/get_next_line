@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:43:50 by jofilipe          #+#    #+#             */
-/*   Updated: 2023/02/10 13:45:33 by jofilipe         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:51:33 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*ft_read_next_line(char *str, int fd)
 static char	*ft_clear_next_line(char *str)
 {
 	int		i;
-	char	*linha;;
+	char	*linha;
 
 	i = 0;
 	if (!str[i])
@@ -61,7 +61,6 @@ static char	*ft_clear_next_line(char *str)
 	linha[i] = str[i];
 	i++;
 	linha[i] = '\0';
-	/* free (str); */
 	return (linha);
 }
 
@@ -92,17 +91,16 @@ static char	*ft_get_the_next_line(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
-	char		**mander;
+	static char	*str[MAX_FILES];
 	char		*linha;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > MAX_FILES || BUFFER_SIZE < 1)
 		return (NULL);
-	str = ft_read_next_line(*mander[fd], fd);
-	if (!str)
+	str[fd] = ft_read_next_line(str[fd], fd);
+	if (!str[fd])
 		return (NULL);
-	linha = ft_clear_next_line (str);
-	str = ft_get_the_next_line (str);
+	linha = ft_clear_next_line (str[fd]);
+	str[fd] = ft_get_the_next_line (str[fd]);
 	return (linha);
 }
 
